@@ -30,14 +30,33 @@ public class CalculatorTest {
 
     @Test
     public void divideTest(){
-        Assert.assertEquals("Divide did not divide properly", 5, Calculator.divide(25, 5));
+        try{
+            Assert.assertEquals("Divide did not divide properly", DivisionByZeroException.class, Calculator.divide(25, 0));
+        } catch (DivisionByZeroException e){
+            System.err.println(e.getMessage());
+        }
 
     }
 
-    @Test(expected = ArithmeticException.class)
-    public void divideEx(){
-        Calculator.divide(5, 0);
+    @Test
+    public void squareRootTest(){
+        try{
+            Assert.assertEquals("Square Root did not fail on negative numbers", ComplexNumberException.class, Calculator.squareRoot(-5));
+        } catch (ComplexNumberException e){
+            System.err.println(e.getMessage());
+        }
+
     }
+
+
+//    @Test(expected = DivisionByZeroException.class)
+//    public void divideEx(){
+//        try{
+//            Calculator.divide(5, 0);
+//        } catch (DivisionByZeroException e){
+//            e.getMessage();
+//        }
+//    }
 
 
 
@@ -45,5 +64,7 @@ public class CalculatorTest {
 
 
 }
+
+
 
 

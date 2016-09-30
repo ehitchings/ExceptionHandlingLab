@@ -17,11 +17,29 @@ public class Calculator {
         return a * b;
     }
 
-    public static int divide(int a, int b) throws ArithmeticException{
+    public static int divide(int a, int b) throws DivisionByZeroException{
         if(b == 0){
-            throw new ArithmeticException("You cannot divide by zero!");
+            throw new DivisionByZeroException("You cannot divide by zero!");
         }
         return a / b;
     }
 
+    public static double squareRoot(int a) throws ComplexNumberException {
+        if(a < 0){
+            throw new ComplexNumberException("Negative Numbers don't have square roots");
+        } return Math.sqrt(a);
+    }
+
+}
+
+class DivisionByZeroException extends Exception{
+    public DivisionByZeroException(String s) {
+
+
+    }
+}
+class ComplexNumberException extends Exception{
+    public ComplexNumberException(String s) {
+
+    }
 }
