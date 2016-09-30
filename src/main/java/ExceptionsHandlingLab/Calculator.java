@@ -18,6 +18,9 @@ public class Calculator {
     }
 
     public static int divide(int a, int b) throws ArithmeticException{
+        if(b == 0){
+            throw new ArithmeticException("You cannot divide by zero!");
+        }
         return a / b;
     }
 
